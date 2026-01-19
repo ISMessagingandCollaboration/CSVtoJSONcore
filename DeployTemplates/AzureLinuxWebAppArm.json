@@ -51,7 +51,7 @@
         },
         "repoURL": {
             "type": "string",
-            "defaultValue": "https://github.com/joelbyford/CSVtoJSONcore.git",
+            "defaultValue": "https://github.com/ISMessagingandCollaboration/CSVtoJSONcore.git",
             "metadata": {
                 "description": "The URL for the GitHub repository *CHANGE IF YOU HAVE FORKED THIS REPO*."
             }
@@ -65,8 +65,7 @@
         }
     },
     "variables": {
-        "hostingPlanName": "[concat('hpn-', resourceGroup().name)],
-        "publicNetworkAccess": "Disabled"
+        "hostingPlanName": "[concat('hpn-', resourceGroup().name)]"
     },
     "resources": [
         {
@@ -91,7 +90,9 @@
                 "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             ],
             "properties": {
-                "serverFarmId": "[variables('hostingPlanName')]"
+                "serverFarmId": "[variables('hostingPlanName')]",
+                "publicNetworkAccess": "Disabled",
+                "httpsOnly": true
             },
             "resources": [
                 {
