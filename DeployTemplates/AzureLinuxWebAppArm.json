@@ -65,7 +65,8 @@
         }
     },
     "variables": {
-        "hostingPlanName": "[concat('hpn-', resourceGroup().name)]"
+        "hostingPlanName": "[concat('hpn-', resourceGroup().name)],
+        "publicNetworkAccess": "Disabled"
     },
     "resources": [
         {
